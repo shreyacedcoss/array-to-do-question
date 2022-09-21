@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 8</title>
+</head>
+<body>
+    <h2>Inventory manager should be able to update the quantity of a products. Display the updated quantity</h2>
+    <button onclick="show()">show</button>
+    <p id="p2"></p>
+    <p id="p1"></p>
+    <select id="sel">
+        <option>samsung</option>
+        <option>nokia</option>
+        <option>xiomi</option>
+        <option>moto</option>
+        <option>apple</option>
+    </select>
+    <input type="number" id="quantity" placeholder="quantity">
+    <button onclick="update()">Update</button>
+    <p id="p3"></p>
+    <p id="p4"></p>
+
+</body>
+<script>
+    var arr=[
+        {name:"samsung",model:"Galaxy",memory:64,price:15000,quantity:20},
+        {name:"nokia",model:"S730",memory:128,price:22000,quantity:21},
+        {name:"xiomi",model:"Note",memory:32,price:12000,quantity:23},
+        {name:"motorala",model:"G10",memory:32,price:15000,quantity:27},
+        {name:"apple",model:"S12",memory:64,price:25000,quantity:29},
+    ]
+
+    function show(){
+        table="<table><tr><th>Company</th><th>Model</th><th>Memory</th><th>Price</th><th>quantity</th></tr>"
+    arr.forEach(element => {
+        table+="<tr><td>"+
+      
+            
+        element.name+
+        "</td><td>"+
+        element.model+
+        "</td><td>"+
+        element.memory+
+        "</td><td>"+
+        element.price+
+        "</td><td>"+
+        element.quantity+
+        "</td></tr>"
+        document.getElementById("p1").innerHTML= table
+    });
+    table+= "</table>"
+}
+function update(){
+    var sel=document.getElementById("sel").value;
+    var quantity=document.getElementById("quantity").value;
+
+    if(sel="samsung"){
+        arr[0].quantity=quantity
+    }
+     else if(sel="nokia"){
+        arr[1].quantity=quantity
+    }
+    else if(sel="xiomi"){
+        arr[2].quantity=quantity
+    }
+     else if(sel="motorala"){
+        arr[3].quantity=quantity
+    }
+    else if(sel="apple"){
+        arr[4].quantity=quantity
+    }
+    console.log(quantity)
+    var table=table="<table><tr><th>Company</th><th>Model</th><th>Memory</th><th>Price</th><th>quantity</th>"
+     arr.forEach(element =>{
+        table+="<tr><td>"+
+        
+            
+        element.name+
+        "</td><td>"+
+        element.model+
+        "</td><td>"+
+        element.memory+
+        "</td><td>"+
+            element.price+
+        "</td><td>"+
+        element.quantity+
+        
+        
+        "</td></tr>"
+        document.getElementById("p4").innerHTML=table
+
+     });  
+     table="</table>" 
+
+}
+</script>
+</html>
